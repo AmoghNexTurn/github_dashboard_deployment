@@ -116,3 +116,63 @@ curl "http://localhost:8000/api/repo/file-summary?owner=<owner>&repo=<repo>&bran
 ## License
 
 This project is licensed under the MIT License — see the `LICENSE` file in the repository root for details.
+
+## Repository Setup
+
+1. Clone the repository:
+
+```bash
+git clone <repo-url>
+cd github_dashboard_project
+```
+
+2. Create a branch for your work:
+
+```bash
+git checkout -b feat/your-feature-name
+```
+
+## Installation
+
+Prerequisites:
+- Docker & Docker Compose (recommended for quick start)
+- Python 3.10+ for local backend development
+- Node.js 18+ and npm for local frontend development
+
+Install and run with Docker Compose (recommended):
+
+```bash
+docker-compose up --build
+```
+
+Local backend install (optional):
+
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+
+Local frontend install (optional):
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Environment variables:
+- Set `GITHUB_PERSONAL_ACCESS_TOKEN` or pass `token`/`github_token` to endpoints when calling GitHub API.
+- Set any LLM provider keys (Anthropic, Groq, etc.) as environment variables or pass via query parameters where supported.
+
+## Contributing Guidelines
+
+- Please open an issue before starting large work so we can discuss scope.
+- Create a branch named `feat/...`, `fix/...`, or `docs/...` and make focused changes.
+- Run linters/formatters and add tests for new functionality.
+- Keep PRs small and include a clear description of changes.
+- Use imperative commit messages (e.g., "Add API examples to README").
+
+If you'd like, I can also create a `CONTRIBUTING.md` with these rules and a simple PR template.
